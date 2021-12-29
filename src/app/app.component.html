@@ -1,0 +1,27 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Dobrodošli v klubskem upravitelju!
+  </h1>
+
+</div>
+
+<div class="example-button-row">
+  <button mat-button (click)="preusmeriUporabniki()">Uporabniki</button>
+  <button mat-button (click)="preusmeriIgrisca()">Igrisca</button>
+  <button mat-button (click)="preusmeriIgralci()">Igralci</button>
+  <button mat-button (click)="preusmeriPostavke()">Postavke</button>
+</div>
+
+
+<div class="igrisca-seznam">
+  <select class="selecting">
+    <option *ngFor="let igrisce of igrisca"> {{igrisce}} </option>
+  </select>
+  <button>Pojdi na igrisce</button>
+
+</div>
+
+
+
+<router-outlet></router-outlet>
