@@ -14,6 +14,8 @@ import { IgralciComponent } from './igralci/igralci.component';
 import { PostavkeComponent } from './postavke/postavke.component';
 import { KoledarComponent } from './koledar/koledar.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { HttpClientModule } from '@angular/common/http';
+import {MatInputModule} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     BrowserAnimationsModule,
     MatSelectModule,
     CommonModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    HttpClientModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

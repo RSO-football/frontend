@@ -1,21 +1,30 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {Router, ActivatedRoute} from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
+
+  
   title = 'frontend-football';
   public igrisca = ["Crno", "Zeleno"];
 
   constructor(
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private client: HttpClient
   ){
 
 
+  }
+  ngOnInit(): void {
+    this.client.get<any>('https://api.openweathermap.org/data/2.5/onecall?lat='+123+'&lon='+123+'&appid=0d587ecb059f1f1612f1d59ba2597bb4').subscribe(data => {
+      console.log(data);
+    })        
   }
 
   public preusmeriUporabniki(){
@@ -32,5 +41,9 @@ export class AppComponent {
 
   public preusmeriIgrisca(){
     this.router.navigate(['igrisca'], {relativeTo: this.route});
+  }
+
+  public preusmeriKoledar(){
+    this.router.navigate(['koledar/' + 1], {relativeTo: this.route});
   }
 }
