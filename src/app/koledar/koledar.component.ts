@@ -14,6 +14,7 @@ export class KoledarComponent implements OnInit {
   typeControl = new FormControl();
   trenerControl = new FormControl();
   datumControl = new FormControl();
+  trenerIzbire = new Array();
 
   koledar: any[];
   igrisceId = -1;
@@ -27,6 +28,15 @@ export class KoledarComponent implements OnInit {
     this.client.get<any>('http://40.76.175.239/rezervacije/v1/rezervacije?igrisceId='+ this.igrisceId).subscribe(data => {
       console.log(data);
       this.koledar = data;
+    });
+
+    this.client.get<any>('http://40.76.175.239/uporabniki/v1/uporabniki/trenerji').subscribe(data => {
+      console.log(data);
+      for(var t in data){
+        
+      this.trenerIzbire.push(data[t].uporabnikId)
+      }
+
     });
   }
 

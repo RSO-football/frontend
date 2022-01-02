@@ -9,6 +9,7 @@ import { FormControl } from '@angular/forms';
 })
 export class PostavkeComponent implements OnInit {
 
+    postavke: any[];
   constructor(
     private client: HttpClient
   ) { }
@@ -16,7 +17,7 @@ export class PostavkeComponent implements OnInit {
   ngOnInit() {
     this.client.get<any>('http://40.76.175.239/postavke/v1/postavke').subscribe(data => {
       console.log(data);
-
+      this.postavke = data;
     });
   }
 
