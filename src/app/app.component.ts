@@ -11,6 +11,9 @@ export class AppComponent implements OnInit{
 
   public igrisca: any[];
   title = 'frontend-football';
+  public selectedOption: string;
+  public idArray = new Array();
+  public imenaArray = new Array();
 
   constructor(
     private router: Router,
@@ -27,6 +30,10 @@ export class AppComponent implements OnInit{
     this.client.get<any>('http://40.76.175.239/igrisca/v1/igrisca').subscribe(data => {
       //console.log(data);
       this.igrisca = data;
+      for (var id in data){
+        this.idArray.push(data[id].igrisceId)
+        this.imenaArray.push(data[id].name)
+      }
     });      
   }
 
@@ -47,7 +54,7 @@ export class AppComponent implements OnInit{
   }
 
   public preusmeriKoledar(){
-    this.router.navigate(['koledar/' + 1], {relativeTo: this.route});
+    this.router.navigate(['koledar/' + this.idArray[this.imenaArray.indexOf(this.selectedOption)]], {relativeTo: this.route});
   }
 
   public preusmeriRekviziti(){

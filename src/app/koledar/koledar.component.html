@@ -1,3 +1,25 @@
-<p>
-  koledar works!
-</p>
+<mat-form-field appearance="fill">
+  <mat-label>Tip dogodka</mat-label>
+  <input matInput  [formControl]="typeControl">
+</mat-form-field>
+
+<mat-form-field appearance="fill">
+  <mat-label>Trener</mat-label>
+  <textarea matInput [formControl]="trenerControl"></textarea>
+</mat-form-field>
+
+<mat-form-field appearance="fill">
+  <mat-label>Datum in Ura</mat-label>
+  <input matInput [formControl]="datumControl" type="datetime-local" placeholder="Datum">
+</mat-form-field>
+
+<button (click)="dodajRezervacijo()">Dodaj rezervacijo</button>
+
+
+<ul>
+  <li *ngFor="let dogodek of koledar">
+    {{ parseDateC(dogodek.startTime) }}
+    <p>{{ dogodek.eventType }}</p>
+    <p>Trener: {{ dogodek.trenerId }}</p>
+  </li>
+</ul>

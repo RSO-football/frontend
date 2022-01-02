@@ -1,3 +1,25 @@
-<p>
-  rekviziti works!
-</p>
+<mat-form-field appearance="fill">
+  <mat-label>Tip</mat-label>
+  <input matInput  [formControl]="typeControl">
+</mat-form-field>
+
+<mat-form-field appearance="fill">
+  <mat-label>Trener</mat-label>
+  <textarea matInput [formControl]="trenerControl"></textarea>
+</mat-form-field>
+
+<mat-form-field appearance="fill">
+  <mat-label>cena</mat-label>
+  <input matInput type="number" [formControl]="cenaControl">
+</mat-form-field>
+
+<button (click)="dodajRekvizit()">Dodaj prodajo</button>
+
+
+<ul>
+  <li *ngFor="let dogodek of rekviziti">
+    {{ dogodek.type }}
+    <p>{{ dogodek.cost }} €</p>
+    <p>Trener: {{ dogodek.trenerId }}</p>
+  </li>
+</ul>

@@ -28,8 +28,7 @@ export class UporabnikiComponent implements OnInit {
   }
 
   public posodobi(){
-    this.client.put<any>('http://40.76.175.239/uporabniki/v1/uporabniki',{
-      uporabnikId: this.selectedOptionId,
+    this.client.put<any>('http://40.76.175.239/uporabniki/v1/uporabniki/' +this.selectedOptionId,{
       role: this.selectedOptionRole,
       uporabnikID: 123
     }).subscribe(data => {
