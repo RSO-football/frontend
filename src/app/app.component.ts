@@ -9,9 +9,8 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AppComponent implements OnInit{
 
-  
+  public igrisca: any[];
   title = 'frontend-football';
-  public igrisca = ["Crno", "Zeleno"];
 
   constructor(
     private router: Router,
@@ -24,7 +23,11 @@ export class AppComponent implements OnInit{
   ngOnInit(): void {
     //this.client.get<any>('https://api.openweathermap.org/data/2.5/onecall?lat='+123+'&lon='+123+'&appid=0d587ecb059f1f1612f1d59ba2597bb4').subscribe(data => {
     //  console.log(data);
-    //})         
+    //})   
+    this.client.get<any>('http://40.76.175.239/igrisca/v1/igrisca').subscribe(data => {
+      //console.log(data);
+      this.igrisca = data;
+    });      
   }
 
   public preusmeriUporabniki(){

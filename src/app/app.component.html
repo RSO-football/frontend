@@ -16,7 +16,7 @@
 
 <div class="igrisca-seznam">
   <select class="selecting">
-    <option *ngFor="let igrisce of igrisca"> {{igrisce}} </option>
+    <option *ngFor="let igrisce of igrisca"> {{igrisce.name}} </option>
   </select>
   <button (click)="preusmeriKoledar()">Pojdi na igrisce</button>
 

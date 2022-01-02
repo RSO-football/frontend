@@ -1,3 +1,31 @@
-<p>
-  igrisca works!
-</p>
+<mat-form-field appearance="fill">
+  <mat-label>Igrišče</mat-label>
+  <input matInput  [formControl]="igrisceControl">
+</mat-form-field>
+
+<mat-form-field appearance="fill">
+  <mat-label>Latitude</mat-label>
+  <input matInput  [formControl]="latitudeControl">
+</mat-form-field>
+
+<mat-form-field appearance="fill">
+  <mat-label>Longitude</mat-label>
+  <input matInput  [formControl]="longitudeControl">
+</mat-form-field>
+
+<button (click)="dodajIgrisce()">Dodaj igrišče</button>
+
+
+<ul>
+  <li *ngFor="let igrisce of igriscaArray">
+    {{ igrisce.name }}
+  </li>
+</ul>
+
+
+<div class="igrisca-seznam">
+  <select class="selecting" [(ngModel)]="selectedOption">
+    <option *ngFor="let name of imenaArray"> {{name}} </option>
+  </select>
+  <button (click)="izbrisiIgrisce()">Izbrisi igrišče</button>
+</div>

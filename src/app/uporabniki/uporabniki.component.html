@@ -1,3 +1,18 @@
-<p>
-  uporabniki works!
-</p>
+<ul>
+  <li *ngFor="let uporabnik of uporabniki">
+    {{ uporabnik.uporabnikId }}
+    <p>{{ uporabnik.role }}</p>
+  </li>
+</ul>
+
+
+<div class="igrisca-seznam">
+  <select class="selecting" [(ngModel)]="selectedOptionId">
+    <option *ngFor="let id of idArray"> {{id}} </option>
+  </select>
+  <select class="selecting" [(ngModel)]="selectedOptionRole">
+    <option> trener </option>
+    <option> igralec </option>
+  </select>
+  <button (click)="posodobi()">Posodobi uporabnika</button>
+</div>
