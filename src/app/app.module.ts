@@ -16,6 +16,7 @@ import { KoledarComponent } from './koledar/koledar.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { HttpClientModule } from '@angular/common/http';
 import {MatInputModule} from '@angular/material';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,9 @@ import {MatInputModule} from '@angular/material';
     CommonModule,
     MatFormFieldModule,
     HttpClientModule,
-    MatInputModule
+    MatInputModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

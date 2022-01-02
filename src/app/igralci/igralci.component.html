@@ -1,9 +1,27 @@
 <mat-form-field appearance="fill">
   <mat-label>Ime</mat-label>
-  <input matInput>
+  <input matInput  [formControl]="imeControl">
 </mat-form-field>
 
 <mat-form-field appearance="fill">
   <mat-label>Opis</mat-label>
-  <textarea matInput></textarea>
+  <textarea matInput [formControl]="opisControl"></textarea>
 </mat-form-field>
+
+<button (click)="dodajIgralca()">Dodaj igralca</button>
+
+
+<ul>
+  <li *ngFor="let igralec of igralciArray">
+    {{ igralec.name }}
+    <p>{{ igralec.description }}</p>
+  </li>
+</ul>
+
+
+<div class="igrisca-seznam">
+  <select class="selecting" [(ngModel)]="selectedOption">
+    <option *ngFor="let name of imeArray"> {{name}} </option>
+  </select>
+  <button (click)="izbrisiIgralca()">Izbrisi igralca</button>
+</div>

@@ -3,3 +3,14 @@
     flex-direction: column;
     align-items: flex-start;
   }
+
+  .igrisca-seznam{
+    margin: auto;
+    width: 20%;
+    padding: 40px;
+  }
+
+  .selecting{ 
+    height: 40px;
+    width: 100px;
+  }

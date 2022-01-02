@@ -22,9 +22,9 @@ export class AppComponent implements OnInit{
 
   }
   ngOnInit(): void {
-    this.client.get<any>('https://api.openweathermap.org/data/2.5/onecall?lat='+123+'&lon='+123+'&appid=0d587ecb059f1f1612f1d59ba2597bb4').subscribe(data => {
-      console.log(data);
-    })        
+    //this.client.get<any>('https://api.openweathermap.org/data/2.5/onecall?lat='+123+'&lon='+123+'&appid=0d587ecb059f1f1612f1d59ba2597bb4').subscribe(data => {
+    //  console.log(data);
+    //})         
   }
 
   public preusmeriUporabniki(){
