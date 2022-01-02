@@ -3,18 +3,18 @@ import { HttpClient } from '@angular/common/http';
 import { FormControl } from '@angular/forms';
 
 @Component({
-  selector: 'app-postavke',
-  templateUrl: './postavke.component.html',
-  styleUrls: ['./postavke.component.css']
+  selector: 'app-rekviziti',
+  templateUrl: './rekviziti.component.html',
+  styleUrls: ['./rekviziti.component.css']
 })
-export class PostavkeComponent implements OnInit {
+export class RekvizitiComponent implements OnInit {
 
   constructor(
     private client: HttpClient
   ) { }
 
   ngOnInit() {
-    this.client.get<any>('http://40.76.175.239/postavke/v1/postavke').subscribe(data => {
+    this.client.get<any>('http://40.76.175.239/rekviziti/v1/rekviziti').subscribe(data => {
       console.log(data);
 
     });

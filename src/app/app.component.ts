@@ -49,4 +49,8 @@ export class AppComponent implements OnInit{
   public preusmeriKoledar(){
     this.router.navigate(['koledar/' + 1], {relativeTo: this.route});
   }
+
+  public preusmeriRekviziti(){
+    this.router.navigate(['rekviziti'], {relativeTo: this.route});
+  }
 }
