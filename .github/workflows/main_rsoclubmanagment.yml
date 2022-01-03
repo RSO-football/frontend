@@ -51,4 +51,4 @@ jobs:
         with:
           app-name: 'rsoClubManagment'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_EE34C1C0F875428588E9F941369A0B7A }}
-          package: ./dist/frontend
+          package: ./dist/frontend-football
