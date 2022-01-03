@@ -50,6 +50,5 @@ jobs:
         uses: azure/webapps-deploy@v2
         with:
           app-name: 'rsoClubManagment'
-          slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_EE34C1C0F875428588E9F941369A0B7A }}
-          package: .
+          package: ./dist/frontend
