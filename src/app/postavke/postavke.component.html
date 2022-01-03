@@ -1,3 +1,54 @@
+<mat-form-field appearance="fill">
+  <mat-label>Trener</mat-label>
+  <input matInput type="number"  [formControl]="idControl">
+</mat-form-field>
+
+<mat-form-field appearance="fill">
+  <mat-label>Postavka</mat-label>
+  <input matInput type="number" [formControl]="postavkaControl">
+</mat-form-field>
+
+<button (click)="ustvariPostavko()">Ustvari postavko</button>
+
 <p>
-  postavke works!
+  <mat-form-field appearance="fill">
+  <mat-label>Trener</mat-label>
+  <input matInput type="number"  [formControl]="idControl2">
+</mat-form-field>
+
+<mat-form-field appearance="fill">
+  <mat-label>Postavka (ID)</mat-label>
+  <input matInput type="number" [formControl]="postavkaControl2">
+</mat-form-field>
+
+
+<mat-form-field appearance="fill">
+  <mat-label>Nova postavka</mat-label>
+  <input matInput type="number" [formControl]="novaControl2">
+</mat-form-field>
+
+
+<button (click)="posodobiPostavko()">Posodobi postavko</button>
 </p>
+
+<p>Postavke:</p>
+
+<ul>
+  <li *ngFor="let postavka of postavke">
+    Trener: {{ postavka.uporabnikID }}
+    <p>Postavka: {{ postavka.pay }} €</p>
+    <p>ID postavke: {{ postavka.postavkaId }}</p>
+  </li>
+</ul>
+
+
+------------------------------------------------------------------------------------------------------------
+
+<p>Plača:</p>
+
+<ul>
+  <li *ngFor="let dolg of dolgovi">
+    Trener: {{ dolg.uporabnikID }}
+    <p>Dolg: {{ dolg.salary }} €</p>
+  </li>
+</ul>
