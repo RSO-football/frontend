@@ -8,11 +8,11 @@
 </div>
 
 <div class="example-button-row">
-  <button mat-button (click)="preusmeriUporabniki()">Uporabniki</button>
-  <button mat-button (click)="preusmeriIgrisca()">Igrisca</button>
-  <button mat-button (click)="preusmeriIgralci()">Igralci</button>
-  <button mat-button (click)="preusmeriPostavke()">Postavke</button>
-  <button mat-button (click)="preusmeriRekviziti()">Rekviziti</button>
+  <button mat-button [disabled]="(dynamicFlag | async)" (click)="preusmeriUporabniki()">Uporabniki</button>
+  <button mat-button [disabled]="(dynamicFlag | async)" (click)="preusmeriIgrisca()">Igrisca</button>
+  <button mat-button [disabled]="(dynamicFlag | async)" (click)="preusmeriIgralci()">Igralci</button>
+  <button mat-button [disabled]="(dynamicFlag | async)" (click)="preusmeriPostavke()">Postavke</button>
+  <button mat-button [disabled]="(dynamicFlag | async)" (click)="preusmeriRekviziti()">Rekviziti</button>
 </div>
 
 
