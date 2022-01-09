@@ -15,6 +15,8 @@ export class KoledarComponent implements OnInit {
   trenerControl = new FormControl();
   datumControl = new FormControl();
   trenerIzbire = new Array();
+  vreme = ""
+  slika = "https://live.staticflickr.com/"
 
   koledar: any[];
   igrisceId = -1;
@@ -37,6 +39,18 @@ export class KoledarComponent implements OnInit {
       this.trenerIzbire.push(data[t].uporabnikId)
       }
 
+    });
+
+    this.client.get<any>('http://40.76.175.239/rezervacije/v1/rezervacije/' + this.igrisceId + '/vreme').subscribe(data => {
+      this.vreme = data["current"]["weather"][0]["description"]
+      console.log(data)
+      console.log(this.vreme)
+    });
+
+    this.client.get<any>('http://40.76.175.239/igrisca/v1/igrisca/' + this.igrisceId + '/slika').subscribe(data => {
+
+      console.log(data)
+      this.slika += data["server"] + "/" + data["idSlike"] + "_" + data["secret"] + ".jpg"
     });
   }
 
