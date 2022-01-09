@@ -4,6 +4,7 @@
     Dobrodošli v klubskem upravitelju!
   </h1>
 
+  <h2 [style.visibility]="(dynamicFlag | async) ? 'visible' : 'hidden'">konfiguracija spremenjena</h2>
 </div>
 
 <div class="example-button-row">

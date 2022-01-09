@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Router, ActivatedRoute} from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import {AppConfigurationClient} from '@azure/app-configuration';
 
 @Component({
   selector: 'app-root',
@@ -35,6 +36,18 @@ export class AppComponent implements OnInit{
         this.imenaArray.push(data[id].name)
       }
     });      
+  }
+
+  dynamicFlag = this.getFlag();
+
+  async getFlag(){
+      const conn = 'Endpoint=https://frontend-configuration.azconfig.io;Id=rXJT-l0-s0:/D95ZVK6rgP46IFG62Ez;Secret=OXp6EQyw+8aU73WcZi1/KV3kF3KoNtMzBue45UdHjNI='
+      const featureClient = new AppConfigurationClient(conn)
+      var val = await featureClient.getConfigurationSetting({key : ".appconfig.featureflag/profil"})
+      console.log(val)
+      console.log(JSON.parse(val.value).enabled)
+      return JSON.parse(val.value).enabled;
+
   }
 
   public preusmeriUporabniki(){
