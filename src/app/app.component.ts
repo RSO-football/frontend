@@ -41,7 +41,7 @@ export class AppComponent implements OnInit{
   dynamicFlag = this.getFlag();
 
   async getFlag(){
-      const conn = 'Endpoint=https://frontend-configuration.azconfig.io;Id=rXJT-l0-s0:/D95ZVK6rgP46IFG62Ez;Secret=OXp6EQyw+8aU73WcZi1/KV3kF3KoNtMzBue45UdHjNI='
+      const conn = 'Endpoint=http://frontend-configuration.azconfig.io;Id=rXJT-l0-s0:/D95ZVK6rgP46IFG62Ez;Secret=OXp6EQyw+8aU73WcZi1/KV3kF3KoNtMzBue45UdHjNI='
       const featureClient = new AppConfigurationClient(conn)
       var val = await featureClient.getConfigurationSetting({key : ".appconfig.featureflag/profil"})
       console.log(val)
