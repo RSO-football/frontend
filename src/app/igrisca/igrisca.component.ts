@@ -25,7 +25,7 @@ export class IgriscaComponent implements OnInit {
 
   ngOnInit() {
 
-    this.client.get<any>('https://40.76.175.239/igrisca/v1/igrisca').subscribe(data => {
+    this.client.get<any>('http://40.76.175.239/igrisca/v1/igrisca').subscribe(data => {
       //console.log(data);
       this.igriscaArray = data;
       for (var id in data){
@@ -36,13 +36,13 @@ export class IgriscaComponent implements OnInit {
   }
 
   izbrisiIgrisce(){
-    this.client.delete<any>('https://40.76.175.239/igrisca/v1/igrisca/'+ this.idArray[this.imenaArray.indexOf(this.selectedOption)]).subscribe(data => {
+    this.client.delete<any>('http://40.76.175.239/igrisca/v1/igrisca/'+ this.idArray[this.imenaArray.indexOf(this.selectedOption)]).subscribe(data => {
 
     });
   }
 
   dodajIgrisce(){
-    this.client.post<any>('https://40.76.175.239/igrisca/v1/igrisca',{
+    this.client.post<any>('http://40.76.175.239/igrisca/v1/igrisca',{
       latitude: this.latitudeControl.value,
       longitude: this.longitudeControl.value,
       name: this.igrisceControl.value

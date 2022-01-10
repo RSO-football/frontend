@@ -27,12 +27,12 @@ export class KoledarComponent implements OnInit {
 
   ngOnInit() {
     this.igrisceId = this.route.snapshot.params.igrisceId;
-    this.client.get<any>('https://40.76.175.239/rezervacije/v1/rezervacije?igrisceId='+ this.igrisceId).subscribe(data => {
+    this.client.get<any>('http://40.76.175.239/rezervacije/v1/rezervacije?igrisceId='+ this.igrisceId).subscribe(data => {
       console.log(data);
       this.koledar = data;
     });
 
-    this.client.get<any>('https://40.76.175.239/uporabniki/v1/uporabniki/trenerji').subscribe(data => {
+    this.client.get<any>('http://40.76.175.239/uporabniki/v1/uporabniki/trenerji').subscribe(data => {
       console.log(data);
       for(var t in data){
         
@@ -41,13 +41,13 @@ export class KoledarComponent implements OnInit {
 
     });
 
-    this.client.get<any>('https://40.76.175.239/rezervacije/v1/rezervacije/' + this.igrisceId + '/vreme').subscribe(data => {
+    this.client.get<any>('http://40.76.175.239/rezervacije/v1/rezervacije/' + this.igrisceId + '/vreme').subscribe(data => {
       this.vreme = data["current"]["weather"][0]["description"]
       console.log(data)
       console.log(this.vreme)
     });
 
-    this.client.get<any>('https://40.76.175.239/igrisca/v1/igrisca/' + this.igrisceId + '/slika').subscribe(data => {
+    this.client.get<any>('http://40.76.175.239/igrisca/v1/igrisca/' + this.igrisceId + '/slika').subscribe(data => {
 
       console.log(data)
       this.slika += data["server"] + "/" + data["idSlike"] + "_" + data["secret"] + ".jpg"
@@ -61,7 +61,7 @@ export class KoledarComponent implements OnInit {
   }
 
   dodajRezervacijo(){
-    this.client.post<any>('https://40.76.175.239/rezervacije/v1/rezervacije',{
+    this.client.post<any>('http://40.76.175.239/rezervacije/v1/rezervacije',{
       eventType: this.typeControl.value,
       trenerId: this.trenerControl.value,
       startTime: this.datumControl.value,

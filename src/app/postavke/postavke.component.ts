@@ -23,11 +23,11 @@ export class PostavkeComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.client.get<any>('https://40.76.175.239/postavke/v1/postavke').subscribe(data => {
+    this.client.get<any>('http://40.76.175.239/postavke/v1/postavke').subscribe(data => {
       console.log(data);
       this.postavke = data;
     });
-    this.client.get<any>('https://40.76.175.239/postavke/v1/postavke/place').subscribe(data => {
+    this.client.get<any>('http://40.76.175.239/postavke/v1/postavke/place').subscribe(data => {
       console.log(data);
       this.dolgovi = data;
     });
@@ -35,7 +35,7 @@ export class PostavkeComponent implements OnInit {
 
   posodobiPostavko(){
 
-    this.client.put<any>('https://40.76.175.239/postavke/v1/postavke/'+this.postavkaControl2.value,{
+    this.client.put<any>('http://40.76.175.239/postavke/v1/postavke/'+this.postavkaControl2.value,{
       pay: this.novaControl2.value,
       uporabnikID: this.idControl2.value
     }).subscribe(data => {
@@ -45,7 +45,7 @@ export class PostavkeComponent implements OnInit {
 
   ustvariPostavko(){
 
-    this.client.post<any>('https://40.76.175.239/postavke/v1/postavke',{
+    this.client.post<any>('http://40.76.175.239/postavke/v1/postavke',{
       uporabnikID: this.idControl.value,
       pay: this.postavkaControl.value
     }).subscribe(data => {

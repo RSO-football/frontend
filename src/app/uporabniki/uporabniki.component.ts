@@ -18,7 +18,7 @@ export class UporabnikiComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.client.get<any>('https://40.76.175.239/uporabniki/v1/uporabniki').subscribe(data => {
+    this.client.get<any>('http://40.76.175.239/uporabniki/v1/uporabniki').subscribe(data => {
       //console.log(data);
       this.uporabniki = data
       for(var igralec in data){
@@ -28,7 +28,7 @@ export class UporabnikiComponent implements OnInit {
   }
 
   public posodobi(){
-    this.client.put<any>('https://40.76.175.239/uporabniki/v1/uporabniki/' +this.selectedOptionId,{
+    this.client.put<any>('http://40.76.175.239/uporabniki/v1/uporabniki/' +this.selectedOptionId,{
       role: this.selectedOptionRole,
       uporabnikID: 123
     }).subscribe(data => {
