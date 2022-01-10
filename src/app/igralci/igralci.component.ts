@@ -22,7 +22,7 @@ export class IgralciComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.client.get<any>('http://40.76.175.239/igralci/v1/igralci').subscribe(data => {
+    this.client.get<any>('https://40.76.175.239/igralci/v1/igralci').subscribe(data => {
       console.log(data);
       this.igralciArray = data;
       for(var igralec in data){
@@ -33,7 +33,7 @@ export class IgralciComponent implements OnInit {
   }
 
   public dodajIgralca(){
-    this.client.post<any>('http://40.76.175.239/igralci/v1/igralci', {
+    this.client.post<any>('https://40.76.175.239/igralci/v1/igralci', {
       name: this.imeControl.value,
       description: this.opisControl.value
     }).subscribe(data => {
@@ -42,7 +42,7 @@ export class IgralciComponent implements OnInit {
   }
 
   public izbrisiIgralca(){
-    this.client.delete<any>('http://40.76.175.239/igralci/v1/igralci/'+ this.idArray[this.imeArray.indexOf(this.selectedOption)]).subscribe(data => {
+    this.client.delete<any>('https://40.76.175.239/igralci/v1/igralci/'+ this.idArray[this.imeArray.indexOf(this.selectedOption)]).subscribe(data => {
       console.log(data);
     })
   };

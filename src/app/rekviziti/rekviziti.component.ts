@@ -18,14 +18,14 @@ export class RekvizitiComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.client.get<any>('http://40.76.175.239/rekviziti/v1/rekviziti').subscribe(data => {
+    this.client.get<any>('https://40.76.175.239/rekviziti/v1/rekviziti').subscribe(data => {
       console.log(data);
       this.rekviziti = data
     });
   }
 
   dodajRekvizit(){
-    this.client.post<any>('http://40.76.175.239/rekviziti/v1/rekviziti',{
+    this.client.post<any>('https://40.76.175.239/rekviziti/v1/rekviziti',{
       type: this.typeControl.value,
       trenerId: this.trenerControl.value,
       cost: this.cenaControl.value
